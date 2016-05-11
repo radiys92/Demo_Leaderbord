@@ -1292,12 +1292,17 @@ MonoBehaviour:
   - {fileID: 11492184}
   - {fileID: 11440980}
   - {fileID: 11457294}
+  ContantContainer: {fileID: 22428384}
   OnUserStatsUpdate:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  ContantContainer: {fileID: 22428384}
+  OnLeadersDataUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &11417174
 MonoBehaviour:
   m_ObjectHideFlags: 1

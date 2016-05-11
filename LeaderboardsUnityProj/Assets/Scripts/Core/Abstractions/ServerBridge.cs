@@ -2,7 +2,7 @@
 
 public class ServerBridge : CharpSingleton<ServerBridge>
 {
-    public UserStats GetCurrentUserStats()
+    public UserStats GetCurrentUserStats(FiltersInfo filtersInfo)
     {
         return UserStats.Dummy;
     }

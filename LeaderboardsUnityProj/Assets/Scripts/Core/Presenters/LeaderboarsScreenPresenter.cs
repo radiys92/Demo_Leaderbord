@@ -5,10 +5,23 @@ using UnityEngine.Events;
 public class LeaderboarsScreenPresenter : MonoBehaviour
 {
     public LeaderboardPanelPresenter[] ScreenPresenters;
-    public UnityEvent OnUserStatsUpdate = new UnityEvent();
     public RectTransform ContantContainer;
 
-    private FiltersInfo FiltersInfo { get; set; }
+    public UnityEvent OnUserStatsUpdate = new UnityEvent();
+    public UnityEvent OnLeadersDataUpdate = new UnityEvent();
+
+    private FiltersInfo _filtersInfo;
+
+    private FiltersInfo FiltersInfo
+    {
+        get { return _filtersInfo; }
+        set
+        {
+            _filtersInfo = value;
+            OnUserStatsUpdate.Invoke();
+            OnLeadersDataUpdate.Invoke();
+        }
+    }
 
     void Awake()
     {
@@ -41,7 +54,7 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
 
     public UserStatsViewData GetUserStatsViewData()
     {
-        return UserStatsViewData.InitFrom(OptionsBridge.Instance.GetUserStats());
+        return UserStatsViewData.InitFrom(ServerBridge.Instance.GetCurrentUserStats(FiltersInfo));
     }
 
     public UserTopViewData[] GetTop10ViewData()

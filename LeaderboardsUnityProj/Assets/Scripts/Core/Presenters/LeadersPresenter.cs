@@ -13,6 +13,7 @@ public class LeadersPresenter : LeaderboardPanelPresenter
     {
         UpdateCellSize();
         UpdateCellsData();
+        ParentScreen.OnLeadersDataUpdate.AddListener(UpdateCellsData);
     }
 
     private void UpdateCellsData()
@@ -23,7 +24,7 @@ public class LeadersPresenter : LeaderboardPanelPresenter
         var childs = grid.Cast<Transform>().ToArray();
         for (var i = 1; i < childs.Length; i++)
         {
-            Destroy(childs[i]);
+            Destroy(childs[i].gameObject);
         }
         var prefab = childs[0];
 
