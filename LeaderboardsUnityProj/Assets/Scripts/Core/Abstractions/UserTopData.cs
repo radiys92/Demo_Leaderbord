@@ -1,4 +1,6 @@
-﻿public class UserTopData
+﻿using UnityEngine;
+
+public class UserTopData
 {
     public static UserTopData Dummy
     {
@@ -7,7 +9,7 @@
             return new UserTopData()
             {
                 IconId = UnityEngine.Random.Range(0, 9),
-                Score = 123245,
+                Score = (long)(Random.value * 9999 + 999),
                 UserName = "Olga Pupkina"
             };
         }

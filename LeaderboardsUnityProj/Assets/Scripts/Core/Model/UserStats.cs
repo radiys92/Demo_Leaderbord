@@ -7,9 +7,9 @@ public class UserStats
         get { return new UserStats()
         {
             UserName = "Vasya Pupkin",
-            IconId = Random.Range(0,9),
-            Rank = 1234567,
-            Score = 12345,
+            IconId = 6,
+            Rank = (long)(Random.value*9999999 + 9999),
+            Score = (long)(Random.value * 9999 + 999),
             BetterThen = Random.Range(10,99)
         };}
     }
