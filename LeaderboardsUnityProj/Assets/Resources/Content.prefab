@@ -3544,6 +3544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c6c6f786444b245aafd9fd0ffb919f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BackButton: {fileID: 11484422}
+  ShareButton: {fileID: 11458672}
 --- !u!114 &11458672
 MonoBehaviour:
   m_ObjectHideFlags: 1

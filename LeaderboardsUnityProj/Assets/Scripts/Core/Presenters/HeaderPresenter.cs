@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HeaderPresenter : LeaderboardPanelPresenter
 {
-    public override void InitPresenter(LeaderboarsScreenPresenter parent)
+    public Button BackButton;
+    public Button ShareButton;
+
+    void Start()
     {
-        base.InitPresenter(parent);
+        if (BackButton)
+            BackButton.onClick.AddListener(ParentScreen.GoBackScreen);
+        if (ShareButton)
+            ShareButton.onClick.AddListener(ParentScreen.ShareStats);
     }
 }
