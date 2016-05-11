@@ -226,6 +226,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22473988}
   - 114: {fileID: 11403366}
+  - 114: {fileID: 11457294}
   m_Layer: 5
   m_Name: HeaderAnchor
   m_TagString: Untagged
@@ -292,6 +293,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22410180}
   - 114: {fileID: 11435082}
+  - 114: {fileID: 11492184}
   m_Layer: 5
   m_Name: UserStatsAnchor
   m_TagString: Untagged
@@ -1171,6 +1173,7 @@ GameObject:
   - 224: {fileID: 22445710}
   - 114: {fileID: 11434804}
   - 222: {fileID: 22222628}
+  - 114: {fileID: 11414814}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1271,8 +1274,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 22486522}
   - 114: {fileID: 11441922}
+  - 114: {fileID: 11440980}
   m_Layer: 5
-  m_Name: TopScoreAnchor
+  m_Name: LeadersAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1456,6 +1460,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22498768}
   - 114: {fileID: 11473580}
+  - 114: {fileID: 11496318}
   m_Layer: 5
   m_Name: FiltersAnchor
   m_TagString: Untagged
@@ -2149,6 +2154,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 2
+--- !u!114 &11414814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414e18cddc13f8a43a7e62473a858ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenPresenters:
+  - {fileID: 11496318}
+  - {fileID: 11492184}
+  - {fileID: 11440980}
+  - {fileID: 11457294}
 --- !u!114 &11416692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2905,6 +2926,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 7
+--- !u!114 &11440980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49034fcd23c613d4db7bc9b9b809f816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11441228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3501,6 +3533,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Score:12,485
+--- !u!114 &11457294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c6c6f786444b245aafd9fd0ffb919f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11458672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4889,6 +4932,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &11492184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2975e092a924149beeba9ab7e9f0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11492658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5048,6 +5102,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Matthew Glaas
+--- !u!114 &11496318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c16767c40a5f441b5b565e64766b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11497494
 MonoBehaviour:
   m_ObjectHideFlags: 1
