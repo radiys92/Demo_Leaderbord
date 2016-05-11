@@ -1,6 +1,4 @@
-﻿using DataKeepers;
-
-internal class LocalizationBridge : CharpSingleton<LocalizationBridge>
+﻿internal class LocalizationBridge : CharpSingleton<LocalizationBridge>
 {
     public string LocalizeStatusFilterCaption(PlayerStatus playerStatus)
     {

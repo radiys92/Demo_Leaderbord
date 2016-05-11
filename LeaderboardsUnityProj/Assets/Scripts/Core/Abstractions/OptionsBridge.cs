@@ -1,6 +1,4 @@
-﻿using DataKeepers;
-
-public class OptionsBridge:CharpSingleton<OptionsBridge>
+﻿public class OptionsBridge:CharpSingleton<OptionsBridge>
 {
     public UserStats GetUserStats()
     {
