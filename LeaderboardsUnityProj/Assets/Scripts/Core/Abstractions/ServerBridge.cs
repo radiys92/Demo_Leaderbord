@@ -1,45 +1,78 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 public class ServerBridge : CharpSingleton<ServerBridge>
 {
-    private CacheMachine<FiltersInfo, UserStats> _usersCache = new CacheMachine<FiltersInfo, UserStats>();
-    private CacheMachine<FiltersInfo, UserTopData[]> _topCache = new CacheMachine<FiltersInfo, UserTopData[]>();
-
-    protected override void OnInit()
-    {
-        base.OnInit();
-
-        _usersCache.ExpireTimeSeconds = 60; // load every 60 secs
-        _topCache.ExpireTimeSeconds = 60*60*8; // load every 8 hours
-    }
+    private UserData _userStatsCahce = null;
+    private TopData _topCache = null;
 
     public UserStats GetCurrentUserStats(FiltersInfo filtersInfo)
     {
-        var data = _usersCache.Get(filtersInfo) ?? LoadUserStats(filtersInfo);
-        return data;
+        if (_userStatsCahce == null) LoadUserData();
+        return _userStatsCahce[filtersInfo];
     }
 
     public UserTopData[] GetTop10Data(FiltersInfo filtersInfo)
     {
-        var data = _topCache.Get(filtersInfo) ?? LoadTopData(filtersInfo);
-        return data;
+        if (_topCache == null) LoadTopData();
+        return _topCache[filtersInfo];
     }
 
-    private UserTopData[] LoadTopData(FiltersInfo filtersInfo)
+    private void LoadUserData()
     {
-        var res = new List<UserTopData>();
-        for (var i = 0; i < 10; i++)
+        _userStatsCahce = UserData.Dummy;
+    }
+
+    private void LoadTopData()
+    {
+        _topCache = TopData.Dummy;
+    }
+}
+
+public class TopData : Dictionary<FiltersInfo, UserTopData[]>
+{
+    public static TopData Dummy
+    {
+        get
         {
-            res.Add(UserTopData.Dummy);
+            var data = new TopData();
+            data.Add(new FiltersInfo() { Difficulty = Difficulty.Easy, PlayerStatus = PlayerStatus.All },
+                (new int[10]).Select(a=>UserTopData.Dummy).ToArray());
+            data.Add(new FiltersInfo() { Difficulty = Difficulty.Medium, PlayerStatus = PlayerStatus.All },
+                (new int[10]).Select(a => UserTopData.Dummy).ToArray());
+            data.Add(new FiltersInfo() { Difficulty = Difficulty.Hard, PlayerStatus = PlayerStatus.All },
+                (new int[10]).Select(a => UserTopData.Dummy).ToArray());
+            data.Add(new FiltersInfo() { Difficulty = Difficulty.Easy, PlayerStatus = PlayerStatus.Brookie },
+                (new int[10]).Select(a => UserTopData.Dummy).ToArray());
+            data.Add(new FiltersInfo() { Difficulty = Difficulty.Medium, PlayerStatus = PlayerStatus.Brookie },
+                (new int[10]).Select(a => UserTopData.Dummy).ToArray());
+            data.Add(new FiltersInfo() { Difficulty = Difficulty.Hard, PlayerStatus = PlayerStatus.Brookie },
+                (new int[10]).Select(a => UserTopData.Dummy).ToArray());
+            return data;
         }
-        _topCache.Set(filtersInfo, res.ToArray());
-        return res.ToArray();
     }
+}
 
-    private UserStats LoadUserStats(FiltersInfo filtersInfo)
+public class UserData : Dictionary<FiltersInfo, UserStats>
+{
+    public static UserData Dummy
     {
-        var res = UserStats.Dummy;
-        _usersCache.Set(filtersInfo, res);
-        return res;
+        get
+        {
+            var data = new UserData();
+            data.Add(new FiltersInfo() {Difficulty = Difficulty.Easy, PlayerStatus = PlayerStatus.All},
+                UserStats.Dummy);
+            data.Add(new FiltersInfo() {Difficulty = Difficulty.Medium, PlayerStatus = PlayerStatus.All},
+                UserStats.Dummy);
+            data.Add(new FiltersInfo() {Difficulty = Difficulty.Hard, PlayerStatus = PlayerStatus.All},
+                UserStats.Dummy);
+            data.Add(new FiltersInfo() {Difficulty = Difficulty.Easy, PlayerStatus = PlayerStatus.Brookie},
+                UserStats.Dummy);
+            data.Add(new FiltersInfo() {Difficulty = Difficulty.Medium, PlayerStatus = PlayerStatus.Brookie},
+                UserStats.Dummy);
+            data.Add(new FiltersInfo() {Difficulty = Difficulty.Hard, PlayerStatus = PlayerStatus.Brookie},
+                UserStats.Dummy);
+            return data;
+        }
     }
 }
