@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class LeaderboarsScreenPresenter : MonoBehaviour
 {
     public LeaderboardPanelPresenter[] ScreenPresenters;
     public UnityEvent OnUserStatsUpdate = new UnityEvent();
+    public RectTransform ContantContainer;
 
     private FiltersInfo FiltersInfo { get; set; }
 
@@ -40,5 +42,16 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
     public UserStatsViewData GetUserStatsViewData()
     {
         return UserStatsViewData.InitFrom(OptionsBridge.Instance.GetUserStats());
+    }
+
+    public UserTopViewData[] GetTop10ViewData()
+    {
+        var baseData = ServerBridge.Instance.GetTop10Data();
+        return baseData.Select((data,ind) => UserTopViewData.InitFrom(ind+1,data)).ToArray();
+    }
+
+    public void SetHeight(float lowerWorldPoint)
+    {
+        ContantContainer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, lowerWorldPoint);
     }
 }

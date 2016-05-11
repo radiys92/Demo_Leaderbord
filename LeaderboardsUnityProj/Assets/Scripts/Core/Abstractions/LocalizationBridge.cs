@@ -19,11 +19,21 @@ internal class LocalizationBridge : CharpSingleton<LocalizationBridge>
 
     public string LocalizeBetterThanCaption(int percents)
     {
-        return string.Format("YOU are better than {0}%", percents);
+        return string.Format("you are better than {0}%", percents);
     }
 
     public string LocalizePointerCaption(int percents)
     {
         return string.Format("{0}%", percents);
+    }
+
+    public string LocalizeLeaderIndex(int index)
+    {
+        return index.ToString();
+    }
+
+    public string LocalizeLeaderScore(long score)
+    {
+        return score.ToString("Score:###,###,###,##0");
     }
 }
