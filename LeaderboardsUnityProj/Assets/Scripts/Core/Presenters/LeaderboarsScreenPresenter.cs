@@ -46,7 +46,7 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
 
     public UserTopViewData[] GetTop10ViewData()
     {
-        var baseData = ServerBridge.Instance.GetTop10Data();
+        var baseData = ServerBridge.Instance.GetTop10Data(FiltersInfo);
         return baseData.Select((data,ind) => UserTopViewData.InitFrom(ind+1,data)).ToArray();
     }
 

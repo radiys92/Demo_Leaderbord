@@ -2,6 +2,6 @@
 {
     public UserStats GetUserStats()
     {
-        return ServerBridge.Instance.GetUserStats();
+        return ServerBridge.Instance.GetCurrentUserStats();
     }
 }
