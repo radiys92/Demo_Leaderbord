@@ -5,6 +5,8 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
 {
     public LeaderboardPanelPresenter[] ScreenPresenters;
 
+    private FiltersInfo FiltersInfo { get; set; }
+
     void Awake()
     {
         foreach (var presenter in ScreenPresenters)
@@ -21,5 +23,16 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
     public void ShareStats()
     {
         Debug.Log("Share button pressed!");
+    }
+
+    public FiltersInfo GetFiltersInfo()
+    {
+        return FiltersInfo;
+    }
+
+    public void SetFiltersInfo(FiltersInfo info)
+    {
+        Debug.Log("Setted filter satet to "+info.ToString());
+        FiltersInfo = info;
     }
 }

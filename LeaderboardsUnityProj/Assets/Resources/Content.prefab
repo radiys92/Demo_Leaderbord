@@ -5115,6 +5115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c16767c40a5f441b5b565e64766b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EasyToggle: {fileID: 11443866}
+  MediumToggle: {fileID: 11487516}
+  HardToggle: {fileID: 11477288}
+  AllStatusToggle: {fileID: 11491670}
+  MyStatusToggle: {fileID: 11487488}
+  MyStatusText: {fileID: 11447352}
 --- !u!114 &11497494
 MonoBehaviour:
   m_ObjectHideFlags: 1
