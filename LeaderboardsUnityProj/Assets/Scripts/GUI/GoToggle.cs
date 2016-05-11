@@ -18,6 +18,7 @@ public class GoToggle : Toggle
         base.Start();
         if (_TargetGo != null)
             onValueChanged.AddListener(_TargetGo.SetActive);
+        UpdateState();
     }
 
     private void UpdateState()
