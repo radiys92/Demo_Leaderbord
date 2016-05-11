@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using DataKeepers;
 
-public class OptionsBridge
+public class OptionsBridge:CharpSingleton<OptionsBridge>
 {
-    
+    public UserStats GetUserStats()
+    {
+        return ServerBridge.GetUserStats();
+    }
 }

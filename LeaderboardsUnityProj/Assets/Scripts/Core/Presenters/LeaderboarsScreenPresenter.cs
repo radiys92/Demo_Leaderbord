@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.Events;
 
 public class LeaderboarsScreenPresenter : MonoBehaviour
 {
     public LeaderboardPanelPresenter[] ScreenPresenters;
+    public UnityEvent OnUserStatsUpdate = new UnityEvent();
 
     private FiltersInfo FiltersInfo { get; set; }
 
@@ -34,5 +35,10 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
     {
         Debug.Log("Setted filter satet to "+info.ToString());
         FiltersInfo = info;
+    }
+
+    public UserStatsViewData GetUserStatsViewData()
+    {
+        return UserStatsViewData.InitFrom(OptionsBridge.Instance.GetUserStats());
     }
 }
