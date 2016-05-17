@@ -7,11 +7,10 @@ public class LeadersPresenter : LeaderboardPanelPresenter
 {
     public Button InviteButton;
 
-    public GridLayoutGroup GridGroup;
+    public LayoutGroup GridGroup;
 
     void Start()
     {
-        UpdateCellSize();
         UpdateCellsData();
         ParentScreen.OnLeadersDataUpdate.AddListener(UpdateCellsData);
     }
@@ -36,16 +35,6 @@ public class LeadersPresenter : LeaderboardPanelPresenter
         }
 
         Destroy(prefab.gameObject);
-
-        StartCoroutine(UpdateParentSize());
-    }
-
-    private IEnumerator UpdateParentSize()
-    {
-        yield return new WaitForEndOfFrame();
-        var a = GridGroup.GetComponent<RectTransform>().rect.height;
-        var b = GetComponent<RectTransform>().rect.height;
-        ParentScreen.SetHeight(a+b);
     }
 
     private void CreateCell(Transform prefab, UserTopViewData viewData)
@@ -54,12 +43,5 @@ public class LeadersPresenter : LeaderboardPanelPresenter
         go.SetParent(GridGroup.transform, false);
         var presenter = go.GetComponent<LeaderCellPresenter>();
         presenter.SetData(viewData);
-    }
-
-    private void UpdateCellSize()
-    {
-        var cellSize = GridGroup.cellSize;
-        cellSize.x = GridGroup.GetComponent<RectTransform>().rect.width;
-        GridGroup.cellSize = cellSize;
     }
 }
