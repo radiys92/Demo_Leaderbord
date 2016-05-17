@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class LeaderboarsScreenPresenter : MonoBehaviour
 {
     public LeaderboardPanelPresenter[] ScreenPresenters;
-    public RectTransform ContantContainer;
 
     public UnityEvent OnUserStatsUpdate = new UnityEvent();
     public UnityEvent OnLeadersDataUpdate = new UnityEvent();
@@ -61,10 +60,5 @@ public class LeaderboarsScreenPresenter : MonoBehaviour
     {
         var baseData = ServerBridge.Instance.GetTop10Data(FiltersInfo);
         return baseData.Select((data,ind) => UserTopViewData.InitFrom(ind+1,data)).ToArray();
-    }
-
-    public void SetHeight(float lowerWorldPoint)
-    {
-        ContantContainer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, lowerWorldPoint);
     }
 }
